@@ -11,15 +11,13 @@
   (:import (java.lang String))
   (:require-macros [lt.macros :refer [defui behavior]]))
 
-  (println "ay ala " (clj->js {:line 1 :ch 2}))
-
 (defn dar-lista
   "Devuelve la lista de funciones"
   []
   (def lista [:ul {:style "overflow-y:scroll;"} [:hr]])
   (let[editor (pool/last-active)
         words (e/->cm-ed editor)
-        count (.lineCount words)]
+        count (if (nil? words) (def coun 0) (def coun (.lineCount words)) coun)]
        (dotimes [i count]
          (def linea (.getLine words i))
          (if (boolean (re-find #"^function" linea))
@@ -53,13 +51,12 @@
 (def funcs (object/create ::functions-list.list))
 (sidebar/add-item sidebar/rightbar funcs)
 
-(cmd/command {:command ::function-list
+(cmd/command {:command :functions-list.show
               :desc "functions-list: js Functions"
               :exec (fn []
                       (do (dom/remove (get @funcs :content))
                         (reset! funcs (assoc @funcs :content ((dar-lista) this)))
                         (sidebar/add-item sidebar/rightbar funcs)
-                        (println "dando lista")
-                        (println (.-innerHTML (get @funcs :content)))
+                        (println "functions-list.show")
                       (object/raise sidebar/rightbar :toggle funcs {:transient? false})))})
 
