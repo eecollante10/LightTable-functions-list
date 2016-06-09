@@ -1,0 +1,4 @@
+[
+ [:app :lt.objs.plugins/load-js "functions_list_compiled.js"]
+ [:functions-list.list :lt.plugins.functions-list/on-close-destroy]
+ ]
