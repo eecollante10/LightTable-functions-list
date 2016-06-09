@@ -57,5 +57,4 @@
                       (do (dom/remove (get @funcs :content))
                         (reset! funcs (assoc @funcs :content ((dar-lista) this)))
                         (sidebar/add-item sidebar/rightbar funcs)
-                        (println "functions-list.show")
                       (object/raise sidebar/rightbar :toggle funcs {:transient? false})))})
