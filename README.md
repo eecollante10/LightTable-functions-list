@@ -1,6 +1,8 @@
 # LightTable-functions-list
 Shows javascript functions on the right panel. Click on a function to go to it. To access it, search function in the commands panel (ctrl-space)
 
+![screenshot](assets/sino.png)
+
 ###Key Binding
 Open the functions list by using a shortcut  
 1. Open your user.keymap file. You can search for it on the commands (ctrl-space). Type keymap  
