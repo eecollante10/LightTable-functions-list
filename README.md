@@ -10,7 +10,7 @@ Open the functions list by using a shortcut
 3. You can change "cmd-shift-m" to whatever keys you want
 
 ###Customizing
-The plugin source code uses a regular expression to find the 'function' keyword.  
+The plugin source code uses a [regular expression](https://github.com/eecollante10/LightTable-functions-list/blob/master/src/lt/plugins/functions_list.cljs#L23) to find the 'function' keyword.  
 So you can edit that regular expression to find another keyword.  
 That source code file is in src/lt/plugins
 
