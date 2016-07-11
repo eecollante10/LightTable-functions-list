@@ -20,7 +20,7 @@
         count (if (nil? words) (def coun 0) (def coun (.lineCount words)) coun)]
        (dotimes [i count]
          (def linea (.getLine words i))
-         (if (boolean (re-find #"^\s*function \w+\s*\(" linea))
+         (if (boolean (re-find #"^\s*function\s+\w+\s*\(" linea))
            (do (def spl (str/split linea #"nction " 2))
              (defui boton [this] [:li [:button.button {:type "button" :style "font-size: 140%;"} [:span {:style "color:purple;"} "function "] [:span (get spl 1)]]]
                :click (fn [](do (.scrollIntoView words (clj->js {:from {:line i :ch 0} :to {:line (+ i 20) :ch 0}}))
